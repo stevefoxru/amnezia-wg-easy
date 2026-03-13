@@ -1,80 +1,45 @@
 # AmnewziaWG Easy
 
-You have found the easiest way to install & manage WireGuard on any Linux host!
+Самый простой установить AmneziaWG Easy на свой VPS Ubuntu 24.04.
 
 <p align="center">
   <img src="./assets/screenshot.png" width="802" />
 </p>
 
-## Features
+## Возможности
 
-* All-in-one: AmneziaWG + Web UI.
-* Easy installation, simple to use.
-* List, create, edit, delete, enable & disable clients.
-* Show a client's QR code.
-* Download a client's configuration file.
-* Statistics for which clients are connected.
-* Tx/Rx charts for each connected client.
-* Gravatar support or random avatars.
-* Automatic Light / Dark Mode
-* Multilanguage Support
-* Traffic Stats (default off)
-* One Time Links (default off)
-* Client Expiry (default off)
-* Prometheus metrics support
+* Все в одном: AmneziaWG + веб-интерфейс.
+* Простая установка, удобство использования.
+* Список, создание, редактирование, удаление, включение и отключение клиентов.
+* Отображение QR-кода клиента.
+* Загрузка файла конфигурации клиента.
+* Статистика подключенных клиентов.
+* Графики Tx/Rx для каждого подключенного клиента.
+* Поддержка Gravatar или случайных аватаров.
+* Автоматический светлый/темный режим.
+* Многоязычная поддержка.
+* Статистика трафика (по умолчанию отключена).
+* Одноразовые ссылки (по умолчанию отключены).
+* Срок действия клиента (по умолчанию отключен).
+* Поддержка метрик Prometheus.
 
-## Requirements
+## Требования
 
-* A host with Docker installed.
+* Ubuntu 22/24
+* Docker (если нет в наличии предложит установить)
 
-## Installation
+## Установка
 
-### 1. Install Docker
+### 1. Установка через install.sh
 
-If you haven't installed Docker yet, install it by running:
+Самый просто способ использовать установщик install.sh который сразу проверит и обновит сервер, если 
+это необходимо:
 
 ```bash
-curl -sSL https://get.docker.com | sh
-sudo usermod -aG docker $(whoami)
-exit
+curl -fsSL https://raw.githubusercontent.com/stevefoxru/amnezia-wg-easy/main/install.sh -o install.sh && chmod +x install.sh && sudo ./install.sh
 ```
 
-And log in again.
-
-### 2. Run AmneziaWG Easy
-
-To automatically install & run wg-easy, simply run:
-
-```
-  docker run -d \
-  --name=amnezia-wg-easy \
-  -e LANG=en \
-  -e WG_HOST=<🚨YOUR_SERVER_IP> \
-  -e PASSWORD_HASH=<🚨YOUR_ADMIN_PASSWORD_HASH> \
-  -e PORT=51821 \
-  -e WG_PORT=51820 \
-  -v ~/.amnezia-wg-easy:/etc/wireguard \
-  -p 51820:51820/udp \
-  -p 51821:51821/tcp \
-  --cap-add=NET_ADMIN \
-  --cap-add=SYS_MODULE \
-  --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
-  --sysctl="net.ipv4.ip_forward=1" \
-  --device=/dev/net/tun:/dev/net/tun \
-  --restart unless-stopped \
-  ghcr.io/w0rng/amnezia-wg-easy
-```
-
-> 💡 Replace `YOUR_SERVER_IP` with your WAN IP, or a Dynamic DNS hostname.
->
-> 💡 Replace `YOUR_ADMIN_PASSWORD_HASH` with a bcrypt password hash to log in on the Web UI.
-> See [How_to_generate_an_bcrypt_hash.md](./How_to_generate_an_bcrypt_hash.md) for know how generate the hash.
-
-The Web UI will now be available on `http://0.0.0.0:51821`.
-
-The Prometheus metrics will now be available on `http://0.0.0.0:51821/metrics`. Grafana dashboard [21733](https://grafana.com/grafana/dashboards/21733-wireguard/)
-
-> 💡 Your configuration files will be saved in `~/.amnezia-wg-easy`
+После установки предложит войти в панель управления и можно будет использовать ваш AmneziaWG Easy.
 
 ## Options
 
