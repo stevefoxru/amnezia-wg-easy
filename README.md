@@ -86,19 +86,8 @@ These options can be configured by setting environment variables using `-e KEY="
 
 > If you change `WG_PORT`, make sure to also change the exposed port.
 
-## Updating
+## Благодарность
 
-To update to the latest version, simply run:
-
-```bash
-docker stop amnezia-wg-easy
-docker rm amnezia-wg-easy
-docker pull ghcr.io/w0rng/amnezia-wg-easy
-```
-
-And then run the `docker run -d \ ...` command above again.
-
-## Thanks
-
-Based on [wg-easy](https://github.com/wg-easy/wg-easy) by Emile Nijssen.  
-Use integrations with AmneziaWg from [amnezia-wg-easy](https://github.com/spcfox/amnezia-wg-easy) by Viktor Yudov.
+Сделан на базе [wg-easy](https://github.com/wg-easy/wg-easy) от Emile Nijssen.
+Интеграция AmneziaWg [amnezia-wg-easy](https://github.com/spcfox/amnezia-wg-easy) от Viktor Yudov.
+Использован форк от [amnezia-wg-easy](https://github.com/w0rng/amnezia-wg-easy).
