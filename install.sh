@@ -8,7 +8,7 @@ BACKUP_DIR="${APP_DIR}/backups"
 ENV_FILE="${APP_DIR}/.env"
 COMPOSE_FILE="${APP_DIR}/docker-compose.yml"
 
-IMAGE_DEFAULT="ghcr.io/stevefoxru/amnezia-wg-easy"
+IMAGE_DEFAULT="ghcr.io/w0rng/amnezia-wg-easy"
 
 LANG_DEFAULT="en"
 WEBUI_HOST_DEFAULT="0.0.0.0"
